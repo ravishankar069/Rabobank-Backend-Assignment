@@ -1,7 +1,7 @@
-package com.rabo.customerstatementprocessorservice.service;
+package com.rabo.statementprocessorservice.service;
 
-import com.rabo.customerstatementprocessorservice.modal.TransactionRecord;
-import com.rabo.customerstatementprocessorservice.modal.TransactionRecords;
+import com.rabo.statementprocessorservice.modal.TransactionRecord;
+import com.rabo.statementprocessorservice.modal.TransactionRecords;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -39,7 +39,7 @@ public class XmlStatementReader implements StatementReader {
                 transactionRecordsList.add(transactionRecord);
             }
         } catch (JAXBException parserException) {
-            parserException.printStackTrace();
+            logger.error("Expected XML format missing");
         }
         return transactionRecordsList;
     }

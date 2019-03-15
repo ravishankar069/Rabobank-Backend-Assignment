@@ -1,4 +1,4 @@
-package com.rabo.customerstatementprocessorservice.modal;
+package com.rabo.statementprocessorservice.modal;
 
 import lombok.Data;
 

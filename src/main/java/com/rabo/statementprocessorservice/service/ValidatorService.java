@@ -1,7 +1,7 @@
-package com.rabo.customerstatementprocessorservice.service;
+package com.rabo.statementprocessorservice.service;
 
-import com.rabo.customerstatementprocessorservice.modal.TransactionRecord;
-import com.rabo.customerstatementprocessorservice.utils.UniqueReferenceUtility;
+import com.rabo.statementprocessorservice.modal.TransactionRecord;
+import com.rabo.statementprocessorservice.utils.UniqueReferenceUtility;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 public class ValidatorService {
 	@Autowired
 	private UniqueReferenceUtility uniqueReferenceUtility;
+	
     private Logger logger = LoggerFactory.getLogger(ValidatorService.class);
 
     public List<TransactionRecord> validateRecords(List<TransactionRecord> transactionRecordList) {        
@@ -29,11 +30,11 @@ public class ValidatorService {
         List<TransactionRecord> duplicatedreference = transactionRecordList.stream()
                 .filter(uniqueReferenceUtility.distinctByReference(duplicateRecords -> ((TransactionRecord) duplicateRecords).getTransactionReference()).negate())
                 .collect(Collectors.toList());
+        System.out.println(duplicatedreference);
         for(TransactionRecord record : duplicatedreference) {
         	record.setStatus("Duplicated References Records");
         }
         invalidBalanceRecords.addAll(duplicatedreference);
-        logger.info("output");
         return invalidBalanceRecords;
     }
 }

@@ -1,11 +1,13 @@
-package com.rabo.customerstatementprocessorservice;
+package com.rabo.statementprocessorservice;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CustomerStatementProcessorServiceApplication {
+@EnableAutoConfiguration
+public class StatementProcessorServiceApplication {
     public static void main(String[] args) {
-        SpringApplication.run(CustomerStatementProcessorServiceApplication.class, args);
+        SpringApplication.run(StatementProcessorServiceApplication.class, args);
     }
 }

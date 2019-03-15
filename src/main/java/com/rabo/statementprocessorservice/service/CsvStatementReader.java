@@ -1,7 +1,7 @@
-package com.rabo.customerstatementprocessorservice.service;
+package com.rabo.statementprocessorservice.service;
 
 import com.opencsv.CSVReader;
-import com.rabo.customerstatementprocessorservice.modal.TransactionRecord;
+import com.rabo.statementprocessorservice.modal.TransactionRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -41,10 +41,8 @@ public class CsvStatementReader implements StatementReader {
                 transactionRecordsList.add(transactionRecord);
                 readCsvStatement.close();
             }
-        } catch (FileNotFoundException invalidFileException) {
-            invalidFileException.printStackTrace();
         } catch (IOException ioException) {
-            ioException.printStackTrace();
+            logger.error("Expected CSV format is missing");
         }
         return transactionRecordsList;
     }
