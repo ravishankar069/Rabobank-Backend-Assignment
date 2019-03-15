@@ -1,8 +1,9 @@
 package com.rabo.customerstatementprocessorservice.util;
 
 import com.rabo.customerstatementprocessorservice.modal.TransactionRecord;
-import com.rabo.customerstatementprocessorservice.utils.CsvStatementReader;
-import com.rabo.customerstatementprocessorservice.utils.XmlStatementReader;
+import com.rabo.customerstatementprocessorservice.service.CsvStatementReader;
+import com.rabo.customerstatementprocessorservice.service.XmlStatementReader;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

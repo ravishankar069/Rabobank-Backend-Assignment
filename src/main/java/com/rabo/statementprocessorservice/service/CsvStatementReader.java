@@ -1,17 +1,17 @@
-package com.rabo.customerstatementprocessorservice.utils;
+package com.rabo.customerstatementprocessorservice.service;
 
 import com.opencsv.CSVReader;
 import com.rabo.customerstatementprocessorservice.modal.TransactionRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-@Component
+@Service
 public class CsvStatementReader implements StatementReader {
     private final Logger logger = LoggerFactory.getLogger(CsvStatementReader.class);
 
@@ -39,6 +39,7 @@ public class CsvStatementReader implements StatementReader {
                 transactionRecord.setMutation(record[4]);
                 transactionRecord.setEndBalance(record[5]);
                 transactionRecordsList.add(transactionRecord);
+                readCsvStatement.close();
             }
         } catch (FileNotFoundException invalidFileException) {
             invalidFileException.printStackTrace();

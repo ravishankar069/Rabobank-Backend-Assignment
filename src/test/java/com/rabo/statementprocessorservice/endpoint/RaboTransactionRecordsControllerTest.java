@@ -1,7 +1,6 @@
 package com.rabo.customerstatementprocessorservice.endpoint;
 
 import com.rabo.customerstatementprocessorservice.modal.TransactionRecord;
-import com.rabo.customerstatementprocessorservice.service.FileExtensionHandlerService;
 import com.rabo.customerstatementprocessorservice.service.ValidatorService;
 import org.apache.commons.io.IOUtils;
 import org.junit.Assert;
@@ -12,7 +11,6 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.ArrayList;
@@ -22,9 +20,6 @@ import java.util.List;
 public class RaboTransactionRecordsControllerTest {
     @InjectMocks
     RaboTransactionRecordsController raboTransactionRecordsController;
-
-    @Mock
-    FileExtensionHandlerService fileExtensionHandlerService;
 
     @Mock
     ValidatorService validatorService;

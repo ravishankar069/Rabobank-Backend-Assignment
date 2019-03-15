@@ -1,7 +1,6 @@
-package com.rabo.customerstatementprocessorservice.utils;
+package com.rabo.customerstatementprocessorservice.service;
 
 import com.rabo.customerstatementprocessorservice.modal.TransactionRecord;
-import java.io.File;
 import java.util.List;
 
 public interface StatementReader {

@@ -1,11 +1,10 @@
-package com.rabo.customerstatementprocessorservice.utils;
+package com.rabo.customerstatementprocessorservice.service;
 
 import com.rabo.customerstatementprocessorservice.modal.TransactionRecord;
 import com.rabo.customerstatementprocessorservice.modal.TransactionRecords;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
-
+import org.springframework.stereotype.Service;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
@@ -13,7 +12,7 @@ import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
+@Service
 public class XmlStatementReader implements StatementReader {
     private final Logger logger = LoggerFactory.getLogger(XmlStatementReader.class);
 
